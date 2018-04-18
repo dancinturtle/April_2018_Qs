@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="">
+		<title> <!--  --> </title>
+    	<link rel="stylesheet" type="text/css" href="style.css">
+		<script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js' ></script>
+		<script type="text/javascript">
+
+			// QUEUE FUNCTIONS
+
+			function Queue() {
+				this.head = null;
+				this.tail = null;
+			}
+
+			function Node(val) {
+				this.val = val;
+				this.next = null;
+			}
+
+			function enqueue(queue, val) {
+				node = new Node(val);
+				//  Edge case:  Queue is completely empty.  
+				//		Set both head and tail to point to the node.
+				if (queue.head == null) {
+					queue.head = node;
+					queue.tail = node;
+				}
+				//  Connect the tail node to the new node as its next, then change the tail to point to the new node.
+				else {
+					queue.tail.next = node;
+					queue.tail = node;
+				}
+			}
+
+			function dequeue(queue) {
+				popNode = queue.head;
+				//  Edge case:  Queue is completely empty.  
+				//		Just return popNode, which is null.
+				if (queue.head == null) {
+					return popNode;
+				}
+				//  Edge case:  Queue only has one node, so both head and tail point to the same node.
+				//		*Must set both head and tail to null.
+				else if (queue.head == queue.tail) {
+					queue.head == null;
+					queue.tail == null;
+					return popNode;
+				}
+				//  Move the head to the next node, detaching the original head node from the queue.
+				else {
+					queue.head = queue.head.next;
+					return popNode;
+				}
+			}
+
+			function printQueue(queue) {
+				queueStr = "";
+				runner = queue.head;
+				while(runner != null) {
+					queueStr += runner.val + " - ";
+					runner = runner.next;
+				}
+				queueStr += "null";
+				console.log(queueStr);
+			}
+
+			console.log("WORKING WITH A QUEUE:  ")
+			myQueue = new Queue();
+			enqueue(myQueue, 3);
+			enqueue(myQueue, 6);
+			enqueue(myQueue, 9);
+			printQueue(myQueue);
+			console.log("Dequeueing...")
+			x = dequeue(myQueue);
+			console.log(x.val);
+			printQueue(myQueue);
+
+			// STACK FUNCTIONS, as requested
+
+			function Stack() {
+				this.top = null;
+			}
+
+			function addToStack(stack, val) {
+				node = new Node(val);
+				node.next = stack.top;
+				stack.top = node;
+			}
+
+			function popFromStack(stack) {
+				popNode = stack.top;
+				if (stack.top != null) {
+					stack.top = stack.top.next;
+				}
+				return popNode;
+			}
+
+			function printStack(stack) {
+				stackStr = "";
+				runner = stack.top;
+				while(runner != null) {
+					stackStr += runner.val + " - ";
+					runner = runner.next;
+				}
+				stackStr += "null";
+				console.log(stackStr);
+			}
+
+			console.log("WORKING WITH A STACK:  ")
+			myStack = new Stack()
+			addToStack(myStack, 5)
+			addToStack(myStack, 10)
+			addToStack(myStack, 15)
+			printStack(myStack)
+			console.log("Popping from stack...")
+			y = popFromStack(myStack)
+			console.log(y.val)
+			printStack(myStack)
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
+
+<!--  -->
+
+
+
