@@ -26,6 +26,13 @@ function enqueue(Queue, val) {
 function dequeue(Queue) {
 	if (!Queue.head){
 		return false;
+
+	} else if (Queue.head == Queue.tail) {
+		var takenhead = Queue.head;
+		Queue.head = null;
+		Queue.tail = null;
+		return takenhead
+
 	} else {
 		var takenhead = Queue.head;
 		Queue.head = Queue.head.next;
