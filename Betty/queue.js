@@ -11,6 +11,7 @@ queue1 = new Queue();
 
 function enqueue(queue1, Node)
 {
+  console.log("What is Node?", Node)
   var res = "";
 
   if (!queue1.head){
@@ -57,8 +58,12 @@ function dequeue(){
 }
 
 enqueue(queue1, 2);
+console.log("***** Q1*****", queue1);
 enqueue(queue1, 6);
+console.log("****** Q1 *****", queue1);
 enqueue(queue1, 9);
+console.log("****** Q1 ******", queue1);
+console.log("just the head", queue1.head.next)
 dequeue(queue1);
 
 
