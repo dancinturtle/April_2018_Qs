@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>algo</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function node(val){
+			this.val = val;
+			this.next = null;
+
+		}
+		console.log(node())
+		function queues(){
+			this.head=null;
+			this.tail=null; 
+		}
+
+
+
+		function enque(queues, val){
+			if (queues.head == null){
+				var y = new node(val)
+				queues.head = y ;
+				queues.tail = y
+			}
+			else{
+				var x = new node(val);
+				queues.tail.next = x;
+				queues.tail = x; 
+			}
+		}
+
+		// function dequeue(queues, val){
+		// 	if (queues.head == null){
+		// 		return false;
+		// 	}
+		// 	else{
+		// 		var tmp = queues.head;
+		// 		queues.head = queues.next;
+
+
+
+		// 	}
+		// 	return tmp
+
+
+		// }
+		var queue = [1, 3, 5, 7, 8]
+		console.log(enque(queue, 6))
+
+
+
+
+
+
+	</script>
+
+</body>
+</html>
