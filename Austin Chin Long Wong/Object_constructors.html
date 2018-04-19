@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		// constructor functions
+		function queue() {
+			this.head = null;
+			this.tail =null;
+		}
+		function node(val){
+			this.val = val;
+			this.next = null;
+		}
+
+		// add queue. in this case, queue is completely empty
+		function enqueue(queue, node) {
+			var node1 = new Node(node)
+			if (queue.head == null) {
+				queue.head = node1
+				queue.tail = node1
+			// set the new node as next, change the tail to point to the new node
+			}else{
+				queue.tail.next = node1
+				queue.tail = node1
+			}
+
+		}
+		
+
+		// in this case, queue is empty, 
+		function dequeue(queue) {
+			removeNode = queue.head;
+
+			if (queue.head == null) {
+				return removeNode;
+			} else if (queue.head == queue.tail){
+				queue.head = null;
+				queue.tail = null;
+				return removeNode;
+			} else {
+				queue.head = queue.head.next;
+				return removeNode;
+			}
+		}
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>
